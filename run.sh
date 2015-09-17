@@ -1,6 +1,8 @@
 #!/bin/sh
 export JAVA_OPTS="-Xmx8192m -server"
 
+sysctl -w fs.inotify.max_user_watches=8192000
+
 cd /etc/tomcat7 && patch -p1 < 0001-tomcat-increase-http-header-size-to-65536.patch
 
 service tomcat7 start
