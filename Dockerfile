@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER Zero Cho "http://itsze.ro/"
+MAINTAINER Jun-Ru Chang "jrjang@gmail.com"
 
 ENV OPENGROK_INSTANCE_BASE /grok
 
