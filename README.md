@@ -12,8 +12,11 @@ instance of OpenGrok by one command.
 To start the OpenGrok, simply run:
 
 ```sh
-docker run --privileged -d -v [source to be indexed on host]:/src -p [public port]:8080 jrjang/docker-opengrok
+mkdir -p opengrok
+docker run --privileged -d -v opengrok:/grok -p [public port]:8080 jrjang/docker-opengrok
 ```
+
+Put the source codes under opengrok/src on host.
 
 It may take a while for the indexer to finish the first-time indexing, after
 that, the search engine is available at `http://host:[public port]/source/`.
