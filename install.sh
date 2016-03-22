@@ -3,7 +3,7 @@
 mkdir -p $OPENGROK_INSTANCE_BASE/data
 mkdir -p $OPENGROK_INSTANCE_BASE/etc
 
-wget -O - https://java.net/projects/opengrok/downloads/download/opengrok-0.12.1.tar.gz | tar zxvf -
+wget -O - https://java.net/projects/opengrok/downloads/download/opengrok-0.12.1.5.tar.gz | tar zxvf -
 mv opengrok-* opengrok
 
 /opengrok/bin/OpenGrok deploy
