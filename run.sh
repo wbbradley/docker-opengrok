@@ -1,5 +1,13 @@
 #!/bin/sh
 
+if ! [ -f $OPENGROK_INSTANCE_BASE/deploy ]; then
+  mkdir -p $OPENGROK_INSTANCE_BASE/data
+  mkdir -p $OPENGROK_INSTANCE_BASE/etc
+
+  /opengrok/bin/OpenGrok deploy
+  touch $OPENGROK_INSTANCE_BASE/deploy
+fi
+
 export JAVA_OPTS="-Xmx8192m -server"
 export OPENGROK_FLUSH_RAM_BUFFER_SIZE="-m 256"
 
