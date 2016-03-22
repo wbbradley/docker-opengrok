@@ -6,10 +6,13 @@ if ! [ -f $OPENGROK_INSTANCE_BASE/deploy ]; then
 
   /opengrok/bin/OpenGrok deploy
   touch $OPENGROK_INSTANCE_BASE/deploy
+
+  mv /etc/readonly_configuration.xml /grok/etc
 fi
 
 export JAVA_OPTS="-Xmx8192m -server"
 export OPENGROK_FLUSH_RAM_BUFFER_SIZE="-m 256"
+export READ_XML_CONFIGURATION="/grok/etc/readonly_configuration.xml"
 
 sysctl -w fs.inotify.max_user_watches=8192000
 
