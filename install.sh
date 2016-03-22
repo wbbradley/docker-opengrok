@@ -1,10 +1,11 @@
 #!/bin/sh
-mkdir $OPENGROK_INSTANCE_BASE
-[ -d $OPENGROK_INSTANCE_BASE/data ] || mkdir $OPENGROK_INSTANCE_BASE/data
-[ -d $OPENGROK_INSTANCE_BASE/etc ] || mkdir $OPENGROK_INSTANCE_BASE/etc
-[ -d $OPENGROK_INSTANCE_BASE/src ] || mkdir $OPENGROK_INSTANCE_BASE/src
+
+mkdir -p $OPENGROK_INSTANCE_BASE/data
+mkdir -p $OPENGROK_INSTANCE_BASE/etc
 
 wget -O - https://java.net/projects/opengrok/downloads/download/opengrok-0.12.1.tar.gz | tar zxvf -
 mv opengrok-* opengrok
-cd /opengrok/bin
-./OpenGrok deploy
+
+/opengrok/bin/OpenGrok deploy
+
+cd /etc/tomcat7 && patch -p1 < 0001-tomcat-increase-http-header-size-to-65536.patch
