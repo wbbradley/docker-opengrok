@@ -3,6 +3,7 @@ MAINTAINER Jun-Ru Chang "jrjang@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV OPENGROK_INSTANCE_BASE /grok
+ENV TERM xterm-color
 
 RUN apt-get update
 RUN apt-get install -y openjdk-7-jre-headless exuberant-ctags git subversion mercurial tomcat7 wget inotify-tools
