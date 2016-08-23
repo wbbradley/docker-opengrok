@@ -13,6 +13,9 @@ ADD run.sh /usr/local/bin/run
 RUN apt-get update \
  && apt-get install -y openjdk-7-jre-headless exuberant-ctags git subversion mercurial tomcat7 wget inotify-tools \
  && /usr/local/bin/install
+ 
+VOLUME /grok/src
+VOLUME /grok/data
 
 ENTRYPOINT ["/usr/local/bin/run"]
 
